@@ -2,21 +2,24 @@
 	"name": "mern-notes-app",
 	"version": "1.0.0",
 	"description": "",
-	"main": "index.js",
+	"main": "app.js",
 	"scripts": {
 		"client": " cd front-end && npm start",
-		"server": "nodemon back-end",
-		"dev": "concurrently --kill-others-on-fail \"npm run server\" \"npm run client\"",
+		"server": "node back-end/app.js",
+		"start": "concurrently --kill-others-on-fail \"npm run server\" \"npm run client\"",
+		"dev": "nodemon back-end/app.js",
 		"test": "echo \"Error: no test specified\" && exit 1"
 	},
 	"author": "Facundo Benitez",
 	"license": "ISC",
 	"dependencies": {
 		"dotenv": "^10.0.0",
-		"express": "^4.17.1"
+		"express": "^4.17.1",
+		"mongoose": "^6.0.0"
 	},
 	"devDependencies": {
 		"concurrently": "^6.2.1",
+		"eslint": "^7.32.0",
 		"nodemon": "^2.0.12"
 	}
 }
