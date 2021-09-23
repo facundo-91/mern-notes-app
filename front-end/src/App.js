@@ -1,46 +1,32 @@
 import { useEffect, useState } from 'react'
-import axios from 'axios'
+import todoService from './services/todos'
 import './App.css';
+import Header from './components/Header';
+import TodosContainer from './components/TodosContainer';
 
 function App() {
-	const [notes, setNotes] = useState([]);
-	const [isFetching, setIsFetching] = useState(false);
+	const [todos, setTodos] = useState([]);
 
 	useEffect(() => {
-		const fetchNotes = async () => {
-			setIsFetching(true)
-			const notes = await axios('/api/notes')
-			setNotes(notes.data)
-			setIsFetching(false)
-		}
-		fetchNotes()
+		todoService
+			.getAll()
+			.then(initialTodos => {
+				setTodos(initialTodos)
+			})
 	}, []);
+
+	const addTodo = (todoObject) => {
+		todoService
+			.create(todoObject)
+			.then(returnedTodo => {
+				setTodos(todos.concat(returnedTodo))
+			})
+	}
 
 	return (
 		<div className="App">
-			<header>
-				<div className='header-row-darkmode'>
-					<h1>TODO</h1>
-					<button>
-						<span className='darkmode-icon'></span>
-					</button>
-				</div>
-				<div className='header-row-input'>
-					<span className='checkbox-container'>
-						<input type='checkbox'></input>
-					</span>
-					<input className='new-note-input' type='text' placeholder='Create a new note...'></input>
-				</div>
-			</header>
-			<main>
-				{isFetching
-					? 'Fetching message from API'
-					: (
-						<div>
-							{notes.map(m => <div><p>{m.content}</p></div>)}
-						</div>)}
-			</main>
-
+			<Header createTodo={addTodo} />
+			<TodosContainer todos={todos} />
 		</div>
 	);
 }
