@@ -23,10 +23,16 @@ function App() {
 			})
 	}
 
+	const removeTodo = id => {
+		todoService.remove(id)
+		const newTodos = [...todos].filter(todo => todo.id !== id);
+		setTodos(newTodos)
+	}
+
 	return (
 		<div className="App">
 			<Header createTodo={addTodo} />
-			<TodosContainer todos={todos} />
+			<TodosContainer todos={todos} deleteTodo={removeTodo} />
 		</div>
 	);
 }

@@ -25,11 +25,11 @@ const Header = ({ createTodo }) => {
 				</button>
 			</div>
 			<div className='header-row-input'>
-				<span className='checkbox-container'>
+				<span className='complete-all-checkbox-container'>
 					<input type='checkbox'></input>
 				</span>
-				<form onSubmit={addTodo} className='new-note-form'>
-					<input className='new-note-input' type='text' placeholder='Create a new note...' value={newTodo} onChange={handleChange}></input>
+				<form onSubmit={addTodo} className='new-todo-form'>
+					<input className='new-todo-input' type='text' placeholder='Create a new todo...' value={newTodo} onChange={handleChange}></input>
 				</form>
 			</div>
 		</header>

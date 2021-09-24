@@ -8,6 +8,9 @@
 	--DarkGrayishBlue: hsl(236, 9%, 61%);
 	--VeryDarkGrayishBlue: hsl(235, 19%, 35%);
 }
+body {
+	background-color: var(--VeryLightGray);
+}
 header {
 	display: flex;
 	flex-direction: column;
@@ -42,7 +45,7 @@ button {
 	display: flex;
 	margin: 0 1.5rem;
 }
-.checkbox-container {
+.complete-all-checkbox-container {
 	display: flex;
 	align-items: center;
 	padding: 0 0.75rem 0 1.25rem;
@@ -52,15 +55,52 @@ button {
 	border-top-left-radius: 0.5rem;
 	border-bottom-left-radius: 0.5rem;
 }
-.new-note-form {
+.new-todo-form {
 	display: flex;
 	flex-grow: 1;
 }
-.new-note-input {
+.new-todo-input {
 	flex-grow: 1;
 	padding: 1rem 0.5rem 1rem 0rem;
 	border: 1px solid var(--DarkGrayishBlue);
 	border-left: none;
 	border-top-right-radius: 0.5rem;
 	border-bottom-right-radius: 0.5rem;
+}
+main {
+	margin: -1.75rem 1.5rem 0;
+}
+.note-container {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin: 0;
+	border: 1px solid var(--LightGrayishBlue);
+	border-top: none;
+	background-color: #fff;
+	font-size: 0.75rem;
+}
+.note-container:first-child {
+	border-top-left-radius: 0.5rem;
+	border-top-right-radius: 0.5rem;
+}
+.note-text {
+	flex-grow: 1;
+	color: var(--VeryDarkGrayishBlue);
+	font-size: 0.75rem;
+}
+.complete-checkbox-container {
+	display: flex;
+	align-items: center;
+	padding: 0 0.75rem 0 1.25rem;
+	background-color: #fff;
+}
+.delete-button {
+	width: 3rem;
+	height: 3rem;
+	cursor: pointer;
+}
+.delete-button-icon {
+	width: 0.75rem;
+	height: auto;
 }
