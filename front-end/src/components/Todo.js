@@ -4,7 +4,8 @@ const Todo = ({ todoInfo, deleteTodo }) => {
 	return (
 		<div className='note-container'>
 			<span className='complete-checkbox-container'>
-				<input type='checkbox'></input>
+				<input type='checkbox' id={`todo-checkbox-${todoInfo.id}`}></input>
+				<label for={`todo-checkbox-${todoInfo.id}`}></label>
 			</span>
 			<p className='note-text'>{todoInfo.content}</p>
 			<button className='delete-button' onClick={() => deleteTodo(todoInfo.id)}>
