@@ -70,10 +70,24 @@ input + label {
   display: inline-block;
   position: relative;
 	box-sizing: border-box;
+	cursor: pointer;
+}
+input + label:hover {
+	mask: linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0);
+	-webkit-mask: linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0);
+  mask-composite: exclude;
+  -webkit-mask-composite: destination-out;
+	background:linear-gradient(to bottom right, hsl(192, 100%, 67%),hsl(280, 87%, 65%)) border-box;
+	border:1px solid transparent;
+	border-radius: 50%;
 }
 input:checked + label {
 	background: linear-gradient(to bottom right, hsl(192, 100%, 67%),hsl(280, 87%, 65%));
 	border: 0;
+	mask: unset;
+	-webkit-mask: unset;
+  mask-composite: unset;
+  -webkit-mask-composite: unset;
 }
 input:checked + label::after {
 	content: url(./images/icon-check.svg);
@@ -96,7 +110,7 @@ input:checked + label::after {
 	height: 3rem;
 }
 main {
-	margin: -1.5rem 1.5rem 0;
+	margin: -1.5625rem 1.5rem 0;
 }
 .note-container {
 	display: flex;
@@ -104,8 +118,7 @@ main {
 	align-items: center;
 	border-bottom: 1px solid var(--LightGrayishBlue);
 	background-color: #fff;
-	height: 3rem;
-	box-sizing: border-box;
+	height: 3.25rem;
 }
 .note-container:first-child {
 	border-top-left-radius: 0.5rem;
@@ -122,8 +135,9 @@ main {
 	font-size: 0.75rem;
 }
 .delete-button {
-	width: 3rem;
-	height: 3rem;
+	width: 3.25rem;
+	height: 3.25rem;
+	margin: auto;
 	cursor: pointer;
 }
 .delete-button-icon {
