@@ -1,6 +1,6 @@
 import axios from 'axios'
 
-const baseUrl = '/api/notes'
+const baseUrl = '/api/todos'
 
 const getAll = async () => {
 	const request = axios.get(baseUrl)
@@ -25,9 +25,11 @@ const remove = async id => {
 	return response.data
 }
 
-export default {
+const todoService = {
 	getAll,
 	create,
 	update,
 	remove
 }
+
+export default todoService
