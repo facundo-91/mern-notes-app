@@ -7,7 +7,7 @@ const todoSchema = new mongoose.Schema({
 		required: true
 	},
 	date: Date,
-	important: Boolean
+	completed: Boolean
 })
 
 todoSchema.set('toJSON', {

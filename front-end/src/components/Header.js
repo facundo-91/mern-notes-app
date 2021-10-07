@@ -1,20 +1,29 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
-const Header = ({ createTodo }) => {
+const Header = ({ todos, createTodo, completeTodos }) => {
 	const [newTodo, setNewTodo] = useState('')
+	const [checkbox, setCheckbox] = useState(false)
 
 	const handleChange = (event) => {
 		setNewTodo(event.target.value)
+	}
+
+	const handleCheckbox = event => {
+		setCheckbox(event.target.checked)
+		completeTodos(!checkbox)
 	}
 
 	const addTodo = (event) => {
 		event.preventDefault()
 		createTodo({
 			content: newTodo,
-			important: false,
 		})
 		setNewTodo('')
 	}
+
+	useEffect(() => {
+		todos.some(todo => todo.completed === false) ? setCheckbox(false) : setCheckbox(true)
+	}, [todos])
 
 	return (
 		<header>
@@ -26,8 +35,8 @@ const Header = ({ createTodo }) => {
 			</div>
 			<div className='header-row-input'>
 				<span className='complete-all-checkbox-container'>
-					<input type='checkbox' id='all-todos'></input>
-					<label for='all-todos'></label>
+					<input type='checkbox' id='all-todos' checked={checkbox} onChange={handleCheckbox}></input>
+					<label htmlFor='all-todos'></label>
 				</span>
 				<form onSubmit={addTodo} className='new-todo-form'>
 					<input className='new-todo-input' type='text' placeholder='Create a new todo...' value={newTodo} onChange={handleChange}></input>

@@ -29,10 +29,26 @@ function App() {
 		setTodos(newTodos)
 	}
 
+	const updateTodo = (id, todoContent, todoCompleted) => {
+		const updatedTodo = {
+			content: todoContent,
+			completed: todoCompleted
+		}
+		todoService
+			.update(id, updatedTodo)
+			.then(returnedTodo => {
+				setTodos(prevState => prevState.map(todo => (todo.id !== returnedTodo.id) ? todo : returnedTodo))
+			})
+	}
+
+	const completeTodos = check => {
+		todos.map(todo => updateTodo(todo.id, todo.content, check))
+	}
+
 	return (
 		<div className="App">
-			<Header createTodo={addTodo} />
-			<TodosContainer todos={todos} deleteTodo={removeTodo} />
+			<Header todos={todos} createTodo={addTodo} completeTodos={completeTodos} />
+			<TodosContainer todos={todos} deleteTodo={removeTodo} editTodo={updateTodo} />
 		</div>
 	);
 }

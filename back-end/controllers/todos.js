@@ -22,8 +22,8 @@ const newTodo = (req, res, next) => {
 	const body = req.body
 	const todo = new Todo({
 		content: body.content,
-		important: body.important || false,
 		date: new Date(),
+		completed: false,
 	})
 	todo.save()
 		.then(savedTodo => {
@@ -44,7 +44,7 @@ const updateTodo = (req, res, next) => {
 	const body = req.body
 	const todo = {
 		content: body.content,
-		important: body.important,
+		completed: body.completed,
 	}
 	Todo.findByIdAndUpdate(req.params.id, todo, { new: true })
 		.then(updatedTodo => {

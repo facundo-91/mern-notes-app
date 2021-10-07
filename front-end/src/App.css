@@ -134,6 +134,10 @@ main {
 	color: var(--VeryDarkGrayishBlue);
 	font-size: 0.75rem;
 }
+.completed {
+	text-decoration: line-through;
+	color: var(--LightGrayishBlue);
+}
 .delete-button {
 	width: 3.25rem;
 	height: 3.25rem;
