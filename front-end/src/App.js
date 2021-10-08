@@ -25,8 +25,11 @@ function App() {
 
 	const removeTodo = id => {
 		todoService.remove(id)
-		const newTodos = [...todos].filter(todo => todo.id !== id);
-		setTodos(newTodos)
+		setTodos(prevState => prevState.filter(todo => todo.id !== id));
+	}
+
+	const removeCompletedTodos = () => {
+		todos.map(todo => (todo.completed === false) ? todo : removeTodo(todo.id))
 	}
 
 	const updateTodo = (id, todoContent, todoCompleted) => {
@@ -48,7 +51,7 @@ function App() {
 	return (
 		<div className="App">
 			<Header todos={todos} createTodo={addTodo} completeTodos={completeTodos} />
-			<TodosContainer todos={todos} deleteTodo={removeTodo} editTodo={updateTodo} />
+			<TodosContainer todos={todos} deleteTodo={removeTodo} deleteCompletedTodos={removeCompletedTodos} editTodo={updateTodo} />
 		</div>
 	);
 }
