@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react"
+import TodosFilter from "./TodosFilter"
 
-const CompletedStatus = ({ todos, removeCompletedTodos }) => {
+const CompletedStatus = ({ todos, removeCompletedTodos, todosFilter, setTodosFilter }) => {
 	const [todosLeft, setTodosLeft] = useState(0)
 
 	useEffect(() => {
@@ -12,11 +13,7 @@ const CompletedStatus = ({ todos, removeCompletedTodos }) => {
 	return (
 		<div className='status-container'>
 			<span className='items-left'>{todosLeft} items left</span>
-			<div className='filter-container'>
-				<button>All</button>
-				<button>Active</button>
-				<button>Completed</button>
-			</div>
+			<TodosFilter todosFilter={todosFilter} setTodosFilter={setTodosFilter} container='desktop' />
 			<button className='clear-button' onClick={() => removeCompletedTodos()}>Clear Completed</button>
 		</div>
 	)
