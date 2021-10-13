@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 const Header = ({ todos, createTodo, completeTodos }) => {
 	const [newTodo, setNewTodo] = useState('')
 	const [checkbox, setCheckbox] = useState(false)
+	const [isDark, setIsDark] = useState(false);
 
 	const handleChange = (event) => {
 		setNewTodo(event.target.value)
@@ -25,11 +26,15 @@ const Header = ({ todos, createTodo, completeTodos }) => {
 		todos.some(todo => todo.completed === false) ? setCheckbox(false) : setCheckbox(true)
 	}, [todos])
 
+	useEffect(() => {
+		isDark ? document.body.classList.add('dark') : document.body.classList.remove('dark');
+	}, [isDark]);
+
 	return (
 		<header>
 			<div className='header-row-darkmode'>
 				<h1>TODO</h1>
-				<button>
+				<button onClick={() => setIsDark(!isDark)}>
 					<span className='darkmode-icon'></span>
 				</button>
 			</div>
