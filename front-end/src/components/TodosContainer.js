@@ -15,13 +15,15 @@ const TodosContainer = ({ todos, deleteTodo, deleteCompletedTodos, editTodo }) =
 	return (
 		<>
 			<main>
-				{todos
-					.filter(FILTER_MAP[todosFilter])
-					.map(todo => {
-						return <Todo todoInfo={todo} key={todo.id} deleteTodo={deleteTodo} editTodo={editTodo} />
-					})
-				}
-				<TodosLeftStatus todos={todos} removeCompletedTodos={deleteCompletedTodos} todosFilter={todosFilter} setTodosFilter={setTodosFilter} />
+				<div className='todos-container'>
+					{todos
+						.filter(FILTER_MAP[todosFilter])
+						.map(todo => {
+							return <Todo todoInfo={todo} key={todo.id} deleteTodo={deleteTodo} editTodo={editTodo} />
+						})
+					}
+					<TodosLeftStatus todos={todos} removeCompletedTodos={deleteCompletedTodos} todosFilter={todosFilter} setTodosFilter={setTodosFilter} />
+				</div>
 			</main>
 			<TodosFilter todosFilter={todosFilter} setTodosFilter={setTodosFilter} container='mobile' />
 		</>

@@ -14,12 +14,12 @@ const Todo = ({ todoInfo, deleteTodo, editTodo }) => {
 	}, [todoInfo])
 
 	return (
-		<form className='note-container'>
+		<form className='todo-container'>
 			<span className='complete-checkbox-container'>
 				<input type='checkbox' id={`todo-checkbox-${todoInfo.id}`} checked={checkbox} onChange={handleChange}></input>
 				<label htmlFor={`todo-checkbox-${todoInfo.id}`}></label>
 			</span>
-			<p className={`note-text ${checkbox ? 'completed' : ''}`}>{todoInfo.content}</p>
+			<p className={`todo-text ${checkbox ? 'completed' : ''}`}>{todoInfo.content}</p>
 			<button className='delete-button' onClick={() => deleteTodo(todoInfo.id)}>
 				<img className='delete-button-icon' src={iconCross} alt=''></img>
 			</button>
