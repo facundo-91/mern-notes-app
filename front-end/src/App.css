@@ -65,6 +65,9 @@ body.dark .darkmode-icon {
 	background-color: var(--color1);
 	border-radius: 0.25rem;
 }
+.header-row-input:focus-within {
+	outline: 2px solid var(--color5);
+}
 .complete-all-checkbox-container {
 	display: flex;
 	align-items: center;
@@ -130,6 +133,9 @@ input:checked + label::after {
 	color: var(--color5);
 	background-color: var(--color1);
 	box-sizing: border-box;
+}
+.new-todo-input:focus {
+	outline: none;
 }
 .new-todo-input::placeholder {
 	color: var(--color4);
@@ -276,6 +282,9 @@ main {
 	input:checked + label::after {
 		width: 1.5rem;
 		height: 1.5rem;
+	}
+	input:checked + label::after {
+		left: 1px;
 	}
 	.complete-all-checkbox-container {
 		padding: 0 1.5rem;
