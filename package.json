@@ -5,8 +5,8 @@
 	"main": "app.js",
 	"scripts": {
 		"client": " cd front-end && npm start",
-		"server": "node back-end/app.js",
-		"start": "nodemon back-end/app.js",
+		"server": "nodemon back-end/app.js",
+		"start": "node back-end/app.js",
 		"dev": "concurrently --kill-others-on-fail \"npm run server\" \"npm run client\"",
 		"test": "echo \"Error: no test specified\" && exit 1"
 	},
