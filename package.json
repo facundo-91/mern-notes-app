@@ -6,7 +6,8 @@
 	"scripts": {
 		"client": " cd front-end && npm start",
 		"server": "nodemon back-end/app.js",
-		"start": "node back-end/app.js",
+		"build": "cd front-end && npm run build",
+		"start": "npm run build && node back-end/app.js",
 		"dev": "concurrently --kill-others-on-fail \"npm run server\" \"npm run client\"",
 		"test": "echo \"Error: no test specified\" && exit 1"
 	},
