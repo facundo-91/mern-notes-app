@@ -44,7 +44,7 @@ const Header = ({ todos, createTodo, completeTodos }) => {
 					<label htmlFor='all-todos'></label>
 				</span>
 				<form onSubmit={addTodo} className='new-todo-form'>
-					<input autoFocus className='new-todo-input' type='text' placeholder='Create a new todo...' value={newTodo} onChange={handleChange}></input>
+					<input required autoFocus minLength='5' className='new-todo-input' type='text' placeholder='Create a new todo...' value={newTodo} onChange={handleChange}></input>
 				</form>
 			</div>
 		</header>
