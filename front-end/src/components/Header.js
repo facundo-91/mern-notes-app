@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 const Header = ({ todos, createTodo, completeTodos }) => {
 	const [newTodo, setNewTodo] = useState('')
 	const [checkbox, setCheckbox] = useState(false)
-	const [isDark, setIsDark] = useState(false);
+	const [isDark, setIsDark] = useState(JSON.parse(localStorage.getItem('darkmode')) || false);
 
 	const handleChange = (event) => {
 		setNewTodo(event.target.value)
@@ -27,7 +27,13 @@ const Header = ({ todos, createTodo, completeTodos }) => {
 	}, [todos])
 
 	useEffect(() => {
-		isDark ? document.body.classList.add('dark') : document.body.classList.remove('dark');
+		if (isDark) {
+			document.body.classList.add('dark')
+			localStorage.setItem('darkmode', 'true')
+		} else {
+			document.body.classList.remove('dark');
+			localStorage.setItem('darkmode', 'false')
+		}				
 	}, [isDark]);
 
 	return (
