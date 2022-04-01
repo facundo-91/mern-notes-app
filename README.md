@@ -17,16 +17,7 @@ The users are able to:
 - Clear all completed todos
 - Toggle light and dark mode
 
-## Tech used:
-
-- Front-End:
-  - Create React App
-  - Axios
-- Back-End:
-  - Express
-  - Mongoose
-
-## Setup
+## How to Run
 
 1. Install server dependecies with `npm install`
 2. `cd front-end` and `npm install` to install front-end dependencies.
@@ -40,3 +31,12 @@ PORT=5000
 4. In the project root folder run the express server with `npm run server`
 5. And `npm run client` for the front-end server.
 6. Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+
+## Tech used:
+
+- Front-End:
+  - Create React App
+  - Axios
+- Back-End:
+  - Express
+  - Mongoose
